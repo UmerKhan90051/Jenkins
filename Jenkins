@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    
+    environment {
+        DIRECTORY_PATH = "D:/Assignment/Code"
+        TESTING_ENVIRONMENT = "D:/Assignment/testing"
+        PRODUCTION_ENVIRONMENT = "D:/Assignment/UmerKhan"
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo "Fetching the source code from the directory path specified by the environment variable: ${DIRECTORY_PATH}"
+                echo "Compiling the code and generating any necessary artifacts"
+                // Implement actual build steps here
+            }
+            post {
+                success{
+                mail to: "umerkhan90051@gmail.com",
+                subject: "building sucess full",
+                body : "this build is success full"
+                }
+            }
+        }
+        
+    }
+}
